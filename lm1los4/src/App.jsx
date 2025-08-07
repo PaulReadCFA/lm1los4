@@ -86,10 +86,16 @@ export default function App() {
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis unit="%" />
+            <YAxis unit="%" domain={[0, 'dataMax + 10']} />
             <Tooltip />
             <Bar dataKey="value" fill="#00528C" radius={[8, 8, 0, 0]}>
-              <LabelList dataKey="value" position="top" formatter={(val) => `${val.toFixed(2)}%`} />
+              <LabelList
+  dataKey="value"
+  position="top"
+  dy={-6}
+  formatter={(val) => `${val.toFixed(2)}%`}
+/>
+
             </Bar>
           </BarChart>
         </ResponsiveContainer>
