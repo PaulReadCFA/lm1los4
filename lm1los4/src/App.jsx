@@ -82,23 +82,30 @@ export default function App() {
       {/* Bar Chart */}
       <div className="border rounded-2xl shadow p-4">
         <h2 className="text-xl font-semibold mb-4">Visual Comparison</h2>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis unit="%" domain={[0, 'dataMax + 10']} />
-            <Tooltip />
-            <Bar dataKey="value" fill="#00528C" radius={[8, 8, 0, 0]}>
-              <LabelList
-  dataKey="value"
-  position="top"
-  dy={-6}
-  formatter={(val) => `${val.toFixed(2)}%`}
-/>
+       <ResponsiveContainer width="100%" height={300}>
+  <BarChart
+    data={chartData}
+    margin={{ top: 40, right: 30, left: 0, bottom: 5 }}
+  >
+    <CartesianGrid strokeDasharray="3 3" />
+    <XAxis dataKey="name" />
+    <YAxis
+      unit="%"
+      domain={[0, (dataMax) => Math.ceil(dataMax + 5)]}
+      tickFormatter={(value) => `${value}%`}
+    />
+    <Tooltip />
+    <Bar dataKey="value" fill="#00528C" radius={[8, 8, 0, 0]}>
+      <LabelList
+        dataKey="value"
+        position="top"
+        dy={-6}
+        formatter={(val) => `${val.toFixed(2)}%`}
+      />
+    </Bar>
+  </BarChart>
+</ResponsiveContainer>
 
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
       </div>
     </div>
   );
