@@ -89,11 +89,11 @@ export default function App() {
   >
     <CartesianGrid strokeDasharray="3 3" />
     <XAxis dataKey="name" />
-    <YAxis
-      unit="%"
-      domain={[0, (dataMax) => Math.ceil(dataMax + 5)]}
-      tickFormatter={(value) => `${value}%`}
-    />
+<YAxis
+  domain={[0, (dataMax) => Math.ceil(dataMax + 5)]}
+  tickFormatter={(value) => `${value}%`}
+/>
+
     <Tooltip />
     <Bar dataKey="value" fill="#00528C" radius={[8, 8, 0, 0]}>
       <LabelList
